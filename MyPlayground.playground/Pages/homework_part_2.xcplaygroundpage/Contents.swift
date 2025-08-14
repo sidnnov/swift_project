@@ -29,7 +29,6 @@ numbers.contains(7)
 
 //10. Создайте словарь, где ключи - это имена ваших друзей, а значения - их любимый цвет.
 var colors_friends: [String: String] = ["Curt": "black", "Sam": "pink", "Charlie": "red", "Allice": "green", "Bob": "yellow"]
-
 //11. Выведите любимый цвет вашего друга Bob.
 if let color = colors_friends["Bob"] {
     print("Faivorite color Bob is", color)
@@ -99,11 +98,40 @@ if let frequent = diff_count.max(by: { $0.value < $1.value }) {
 print(most_frequent)
 
 //2. Создайте словарь, в котором ключами будут имена пользователей, а значениями - их списки покупок. Затем объедините списки покупок всех пользователей в один общий список.
+var users_products: [String: [String]] = [
+    "Алексей": ["Хлеб", "Молоко", "Сыр", "Яйца", "Чай"],
+    "Мария": ["Шоколад", "Яблоки", "Сок", "Печенье", "Кофе", "Молоко"],
+    "Иван": ["Паста", "Томатный соус", "Сыр"],
+    "Ольга": ["Масло", "Хлеб", "Чай", "Варенье", "Кефир", "Мандарины", "Огурцы"],
+    "Дмитрий": ["Картофель", "Морковь", "Лук", "Мясо"]
+]
+var full_list: [String] = []
+for products in users_products.values {
+    full_list.append(contentsOf: products)
+}
 
 //3. Объедините два массива чисел в один и отсортируйте его по возрастанию.
+var array_1 = [482, 15, 927, 301, 688, 59]
+var array_2 = [743, 198, 904, 66, 382, 520, 771, 412]
+var full_array: [Int] = []
+full_array.append(contentsOf: array_1 + array_2)
+full_array.sort()
 
 //4. Дан массив с целыми числами. Найдите два числа, которые в сумме дают 0. Если таких нет, то верните пустой массив. Если есть несколько пар, верните любую. Задача ставится в условиях, что она решается без применения вспомогательных функций и алгоритмов сортировки.
-
+var numbers_for_task = [5, -5, 12, 12, 8, 42, 17, -33, -12, -48, 27, 61, -72, 54, -19, 83, 14, -56, 38, 90]
+var array: [Int] = []
+for i in 0..<numbers_for_task.count {
+    for j in (i + 1)..<numbers_for_task.count {
+        if numbers_for_task[i] + numbers_for_task[j] == 0 {
+            array.append(numbers_for_task[i])
+            array.append(numbers_for_task[j])
+        }
+    }
+}
+if array.count == 0 {
+    print(array)
+} else {
+    print(array.ranges(of: 0...1))
+}
+print(array)
 //5. Дан словарь, где ключи - это имена студентов, а значения - это их оценки. Выведите имена студентов, у которых оценка выше 85. Задачу необходимо решить без использования вспомогательных функций и алгоритмов сортировки.
-
-
