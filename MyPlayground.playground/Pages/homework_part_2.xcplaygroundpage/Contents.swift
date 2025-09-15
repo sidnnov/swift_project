@@ -28,7 +28,7 @@ numbers
 numbers.contains(7)
 
 //10. Создайте словарь, где ключи - это имена ваших друзей, а значения - их любимый цвет.
-var colors_friends: [String: String] = ["Curt": "black", "Sam": "pink", "Charlie": "red", "Allice": "green", "Bob": "yellow"]
+var colors_friends: [String: String] = ["Curt": "black", "Sam": "pink", "Charlie": "red", "Alice": "pink", "Bob": "yellow"]
 //11. Выведите любимый цвет вашего друга Bob.
 if let color = colors_friends["Bob"] {
     print("Faivorite color Bob is", color)
@@ -39,7 +39,7 @@ if let color = colors_friends["Bob"] {
 //print("Faivorite color Bob is", colors_friends["Bob"] ?? "Color not found")
 
 //12. Измените любимый цвет вашего друга Alice на зеленый.
-colors_friends["Alice"] = "pink"
+colors_friends["Alice"] = "Зеленый"
 colors_friends
 
 //13. Удалите данные вашего друга Charlie из словаря.
@@ -86,8 +86,7 @@ diff_numbers += [42, 42, 13, 666, 69, 404]
 var diff_count: [Int: Int] = [:]
 for n in diff_numbers {
     if let count = diff_count[n] {
-        diff_count[n] = count + 1
-    } else {
+        diff_count[n] = count + 1z
         diff_count[n] = 1
     }
 }

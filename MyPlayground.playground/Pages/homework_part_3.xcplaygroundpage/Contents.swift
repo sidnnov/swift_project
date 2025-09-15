@@ -28,7 +28,7 @@ for i in 0..<n {
     print(n - i)
 }
 //  4. Используйте условие if для проверки, является ли переменная четным числом.
-let number = -13
+let number = 0
 if number % 2 == 0 {
     print("\(number) - это четное число")
 } else {
@@ -100,7 +100,7 @@ let firstName = "Дима"
 if firstName == "Юра" {
     print("Hello, me!")
 } else {
-    print("Hello, \(firstName)")
+    print("Hello, \(firstName)!")
 }
 //  12. Выводите все элементы массива, которые больше среднего значения.
 var numbers_arr = Array(1...50)
@@ -172,11 +172,60 @@ default:
 //Сложный уровень
 
 //  1. Создайте программу, которая определяет, является ли данная строка палиндромом. Палиндром - это слово или фраза, которые одинаково читаются слева направо и справа налево. Учтите пробелы и знаки препинания.
+let palindrome: String = "A man, a plan, a canal, Panama"
+
+if ({
+    var clear_text: String = ""
+    for letter in palindrome {
+        if letter.isLetter {
+            clear_text.append(letter.lowercased())
+        }
+    }
+    
+    return clear_text == String(clear_text.reversed())
+}()) {
+    print("Строка палиндром")
+} else {
+    print("Строка не палиндром")
+}
 
 //  2. Напишите программу, которая проверяет, является ли введенное число простым.
-
+let simple = 7
+if simple > 1 && {
+    if simple <= 3 {
+        return true
+    }
+    for i in 2...Int(sqrt(Double(simple))) {
+        if simple % i == 0 {
+            return false
+        }
+    }
+    return true
+}() {
+    print("Число \(simple) простое")
+} else {
+    print("Число \(simple) не простое")
+}
 //  3. Напишите программу, которая вычисляет факториал числа.
+var number_fact = 5
+var result = 1
 
+if number_fact >= 1 {
+    for i in 1...number_fact {
+        result *= i
+    }
+    print("Факториал \(number_fact)!, будет \(result)")
+} else if number_fact < 0 {
+    print("Факториал отрицательного числа не существует")
+} else {
+    print("Факториал \(number_fact)!, будет \(result)")
+}
 //  4. Напишите цикл, который выводит все числа Фибоначчи до заданного значения.
-
+let limit_fib = 10
+var list_fib: [Int] = []
+for i in 0..<limit_fib {
+    for j in i..<limit_fib {
+        print(i + 1, j)
+    }
+}
 //  5. Напишите программу, которая по заданному числу N выводит все простые числа до N. Для этого используйте вложенные циклы и условные операторы для проверки делителей каждого числа.

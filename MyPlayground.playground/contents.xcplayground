@@ -1,2 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<playground version='7.0' target-platform='ios' swift-version='6' buildActiveScheme='true' importAppTypes='true'/>
+<playground version='7.0' target-platform='ios' swift-version='6' buildActiveScheme='true' importAppTypes='true'>
+    <pages>
+        <page name='Closures_homework'/>
+        <page name='Functions_homework'/>
+        <page name='homework_part_2'/>
+        <page name='homework_part_3'/>
+        <page name='homework'/>
+        <page name='Optional_homework'/>
+    </pages>
+</playground>
