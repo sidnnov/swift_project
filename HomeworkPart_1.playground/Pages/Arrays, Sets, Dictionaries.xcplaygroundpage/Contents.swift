@@ -86,7 +86,7 @@ diff_numbers += [42, 42, 13, 666, 69, 404]
 var diff_count: [Int: Int] = [:]
 for n in diff_numbers {
     if let count = diff_count[n] {
-        diff_count[n] = count + 1z
+        diff_count[n] = count + 1
         diff_count[n] = 1
     }
 }
