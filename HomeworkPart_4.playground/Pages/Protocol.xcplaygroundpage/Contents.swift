@@ -20,16 +20,42 @@ class Circle: Drawable {
 }
 //  2. Создайте протокол `Playable`, который имеет методы `play()` и `stop()` , а также read-only поле `isPlaying`. Создайте класс `MusicPlayer`, который реализует этот протокол (методы переключают значение флага).
 protocol Playable {
-    privat var isPlaying
+    var isPlaying: Bool { get }
     func play()
     func stop()
 }
 
 class MusicPlayer: Playable {
-    func play() {
-        
+    var isPlaying: Bool
+    
+    init(isPlaying: Bool = false) {
+        self.isPlaying = isPlaying
     }
+    
+    func play() {
+        if isPlaying == false {
+            isPlaying = true
+            print("Вкл")
+        } else {
+            print("Уже воспроизводится")
+        }
+    }
+    
+    func stop() {
+        if isPlaying == true {
+            isPlaying = false
+            print("Выкл")
+        } else {
+            print("Уже остановленно")
+        }
+    }
+    
 }
+
+var movie = MusicPlayer()
+movie.play()
+movie.play()
+
 //  3. Создайте протокол `Animal`, который имеет свойство `name` и метод `makeSound()`. Создайте класс `Dog`, который реализует этот протокол.
 //
 //  4. Создайте протокол `Resizable`, который имеет метод `resize(to:)` и read-only полями `width, height`. Создайте класс `Image`, который реализует этот протокол (меняет размеры).
