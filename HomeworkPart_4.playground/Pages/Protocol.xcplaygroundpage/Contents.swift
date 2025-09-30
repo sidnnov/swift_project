@@ -26,25 +26,21 @@ protocol Playable {
 }
 
 class MusicPlayer: Playable {
-    var isPlaying: Bool
-    
-    init(isPlaying: Bool = false) {
-        self.isPlaying = isPlaying
-    }
+    private(set) var isPlaying: Bool = false
     
     func play() {
-        if isPlaying == false {
+        if !isPlaying {
             isPlaying = true
-            print("Вкл")
+            print("Воспроизведение начато")
         } else {
             print("Уже воспроизводится")
         }
     }
     
     func stop() {
-        if isPlaying == true {
+        if isPlaying {
             isPlaying = false
-            print("Выкл")
+            print("Воспроизведение остановлено")
         } else {
             print("Уже остановленно")
         }
@@ -57,9 +53,28 @@ movie.play()
 movie.play()
 
 //  3. Создайте протокол `Animal`, который имеет свойство `name` и метод `makeSound()`. Создайте класс `Dog`, который реализует этот протокол.
-//
+protocol Animal {
+    var name: String { get }
+    
+    func makeSound()
+}
+
+class Dog: Animal {
+    let name: String
+    
+    init(name: String) {
+        self.name = name
+    }
+    
+    func makeSound() {
+        print("Собака \(name) говорит: Гав, гав, гав")
+    }
+}
 //  4. Создайте протокол `Resizable`, который имеет метод `resize(to:)` и read-only полями `width, height`. Создайте класс `Image`, который реализует этот протокол (меняет размеры).
-//
+protocol Resizable {
+    func resize(width: Double, { set }, height: Double { set })
+    
+}
 //  5. Создайте протокол `Acceleratable`, который имеет метод `accelerate()` и поле *speed*.  Создайте класс `Car`, который реализует этот протокол (увеличивает скорость на 10).
 //
 //  6. Создайте протокол `Identifiable`, который имеет свойство `id`. Создайте структуру `Person`, которая реализует этот протокол.
