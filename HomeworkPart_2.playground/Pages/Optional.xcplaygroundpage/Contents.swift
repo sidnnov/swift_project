@@ -26,11 +26,7 @@ func double(num: Int?) -> Int? {
 double(num: 8)
 //  3. Напишите функцию, которая принимает Optional массив чисел и возвращает его длину, если массив не nil.
 func length_array(array: [Int]?) -> Int? {
-    if let value = array {
-        return value.count
-    } else {
-        return nil
-    }
+    return array?.count
 }
 length_array(array: [1, 2, 3, 4])
 //  4. Напишите функцию, которая принимает Optional строку и проверяет, содержит ли она определенное подстроку, возвращая true или false.
@@ -106,12 +102,8 @@ func first_string(array_str: [String]?) -> String? {
 first_string(array_str: ["Hello", "Bye Bye"])
 //  13. Напишите функцию, которая принимает Optional число и возвращает его квадратный корень, если оно не nil и положительное.
 func return_sqrt(num: Double?) -> Double? {
-    if let num = num {
-        if num >= 0 {
+    if let num = num, num >= 0 {
             return sqrt(num)
-        } else {
-            return nil
-        }
     } else {
         return nil
     }
@@ -135,13 +127,12 @@ func delite_space(str: String?) -> String? {
 let result: String? = delite_space(str: strn1)
 print(result ?? "nil")
 //  16. Напишите функцию, которая принимает Optional число и возвращает true, если оно простое, и false, если не nil и составное.
-func is_simple(num: Int?) -> Bool? {
-    guard let number = num else { return nil }
+func is_simple(num: Int?) -> Bool {
+    guard let number = num else { return false }
     
-    if number < 2 { return false }
     if number == 2 { return true }
-    if number % 2 == 0 { return false }
-    
+    if number < 2 || number % 2 == 0 { return false }
+
     let limit = Int(sqrt(Double(number)))
     
     for i in stride(from: 3, through: limit, by: 2) {
