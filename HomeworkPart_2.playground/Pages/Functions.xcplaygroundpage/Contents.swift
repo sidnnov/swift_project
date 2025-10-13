@@ -23,13 +23,10 @@ func createWelcome(nameUser: String?) {
 }
 createWelcome(nameUser: "Name")
 //  3. Напишите функцию, которая принимает два числа и возвращает их сумму.
-func sumNumbers(a: Int?, b: Int?) -> Int? {
-    guard let a = a, let b = b else {
-        return nil
-    }
+func sumNumbers(a: Int, b: Int) -> Int {
     return a + b
 }
-print(sumNumbers(a: 7, b: 17) ?? "nil")
+print(sumNumbers(a: 7, b: 17))
 //  4. Напишите функцию, которая принимает два числа и возвращает их произведение.
 func prodNumbers(a: Int?, b: Int?) -> Int? {
     guard let a = a, let b = b else {
@@ -72,9 +69,12 @@ func isEven(num: Int?) -> Bool? {
 print(isEven(num: 0) ?? "nil")
 //  9. Напишите функцию, которая принимает число и возвращает true, если оно простое, и false, если составное.
 func isSimple(number: Int) -> Bool {
-    if number < 2 { return false }
-    if number == 2 { return true }
-    if number % 2 == 0 { return false }
+    if number < 2 || number % 2 == 0 {
+        return false
+    }
+    if number == 2 {
+        return true
+    }
     
     let limit = Int(sqrt(Double(number)))
     
@@ -93,7 +93,7 @@ func maxNumber(a: Int, b: Int) -> Int {
 print(maxNumber(a: 0, b: -1))
 //  11. Напишите функцию, которая принимает массив чисел и возвращает массив только из четных чисел.
 func arrayEven(arrayNum: [Int]) -> [Int] {
-    return arrayNum.filter { num in num % 2 == 0 }
+    arrayNum.filter { $0 % 2 == 0 }
 }
 print(arrayEven(arrayNum: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
 //  12. Напишите функцию, которая принимает строку и возвращает ее в обратном порядке.
