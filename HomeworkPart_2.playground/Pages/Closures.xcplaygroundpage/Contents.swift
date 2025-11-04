@@ -38,10 +38,8 @@ arraySquare([3, 5, 8])
 let diff = { (a: Int, b: Int) in return a - b }
 diff(15, 7)
 //  11. Напишите замыкание, которое принимает опциональную строку и возвращает ее длину, если она не nil.
-let stringLength = { (str: String?) -> Int? in
-    if let str = str { return str.count }
-    else { return nil } }
-stringLength("Hello")
+let stringLength = { (str: String?) -> Int? in { return str?.count }() }
+stringLength("nil")
 //  12. Напишите замыкание, которое принимает два числа и возвращает их произведение.
 let mult = { (a: Int, b: Int) in return a * b }
 mult(15, 7)
@@ -94,9 +92,7 @@ func sortArray(_ array: [Int], isIncrement: (Int, Int) -> Bool) -> [Int] {
     for i in 0..<sortedArray.count {
         for j in 0..<sortedArray.count - 1 - i {
             if isIncrement(sortedArray[j + 1], sortedArray[j]) {
-                let temp = sortedArray[j]
-                sortedArray[j] = sortedArray[j + 1]
-                sortedArray[j + 1] = temp
+                sortedArray.swapAt(j + 1, j)
             }
         }
     }

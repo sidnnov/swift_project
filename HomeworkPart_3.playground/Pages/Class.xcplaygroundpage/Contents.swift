@@ -318,7 +318,12 @@ class BankAccount {
     }
     
     func deposit(_ amount: Double) {
-        balance += amount
+        if amount > 0 {
+            balance += amount
+        } else {
+            print("Минимальная сумма пополнения должна быть больше 0")
+        }
+        
     }
     
     func withdraw(_ amount: Double) {

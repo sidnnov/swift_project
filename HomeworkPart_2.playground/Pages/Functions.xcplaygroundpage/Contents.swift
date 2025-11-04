@@ -14,11 +14,7 @@ func printHelloWorld() {
 }
 printHelloWorld()
 //  2. Напишите функцию, которая принимает имя пользователя и выводит приветствие с этим именем.
-func createWelcome(nameUser: String?) {
-    guard let nameUser = nameUser else {
-        print("Hello, Nobody")
-        return
-    }
+func createWelcome(nameUser: String) {
     print("Hello, \(nameUser)")
 }
 createWelcome(nameUser: "Name")
@@ -28,45 +24,31 @@ func sumNumbers(a: Int, b: Int) -> Int {
 }
 print(sumNumbers(a: 7, b: 17))
 //  4. Напишите функцию, которая принимает два числа и возвращает их произведение.
-func prodNumbers(a: Int?, b: Int?) -> Int? {
-    guard let a = a, let b = b else {
-        return nil
-    }
-    return a * b
+func prodNumbers(a: Int, b: Int) -> Int {
+    a * b
 }
-print(prodNumbers(a: 7, b: 10) ?? "nil")
+print(prodNumbers(a: 7, b: 10))
 //  5. Напишите функцию, которая принимает строку и возвращает ее длину.
-func lenghString(string: String?) -> Int? {
-    guard let string = string else {
-        return nil
-    }
-    return string.count
+func lenghString(string: String) -> Int {
+    string.count
 }
-print(lenghString(string: "Привет, мир!") ?? "nil")
+print(lenghString(string: "Привет, мир!"))
 //  6. Напишите функцию, которая принимает массив чисел и возвращает сумму всех элементов массива.
-func sumAllArray(arrayNumbers: [Int]?) -> Int? {
-    guard let arrayNumbers = arrayNumbers else {
-        return nil
-    }
-    return arrayNumbers.reduce(0, +)
+func sumAllArray(arrayNumbers: [Int]) -> Int {
+    arrayNumbers.reduce(0, +)
 }
-print(sumAllArray(arrayNumbers: [1, 2, 3, 4, 5]) ?? "nil")
+print(sumAllArray(arrayNumbers: [1, 2, 3, 4, 5]))
 //  7. Напишите функцию, которая принимает массив строк и выводит каждую строку на новой строке.
-func stringNewLine(arrayString: [String]?) {
-//    guard let arrayString = arrayString else {
-//        return nil
-//    }
-    let result = arrayString?.joined(separator: "\n")
-    print(result ?? "nil")
+func stringNewLine(arrayString: [String]) {
+    let result = arrayString.joined(separator: "\n")
+    print(result)
 }
 stringNewLine(arrayString: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"])
-stringNewLine(arrayString: nil)
 //  8. Напишите функцию, которая принимает число и возвращает true, если оно четное, и false, если нечетное.
-func isEven(num: Int?) -> Bool? {
-    guard let num = num else { return nil }
-    return num % 2 == 13
+func isEven(num: Int) -> Bool {
+    num % 2 == 13
 }
-print(isEven(num: 0) ?? "nil")
+print(isEven(num: 0))
 //  9. Напишите функцию, которая принимает число и возвращает true, если оно простое, и false, если составное.
 func isSimple(number: Int) -> Bool {
     if number < 2 || number % 2 == 0 {
@@ -88,7 +70,7 @@ func isSimple(number: Int) -> Bool {
 print(isSimple(number: 4))
 //  10. Напишите функцию, которая принимает два числа и возвращает большее из них.
 func maxNumber(a: Int, b: Int) -> Int {
-    return max(a, b)
+    max(a, b)
 }
 print(maxNumber(a: 0, b: -1))
 //  11. Напишите функцию, которая принимает массив чисел и возвращает массив только из четных чисел.
@@ -98,47 +80,47 @@ func arrayEven(arrayNum: [Int]) -> [Int] {
 print(arrayEven(arrayNum: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
 //  12. Напишите функцию, которая принимает строку и возвращает ее в обратном порядке.
 func reversString(str: String) -> String {
-    return String(str.reversed())
+    String(str.reversed())
 }
 print(reversString(str: "Привет, мир!"))
 //  13. Напишите функцию, которая принимает массив строк и возвращает новый массив, содержащий только строки заданной длины.
 func lengthString(arrayString: [String], length: Int = 3) -> [String] {
-    return arrayString.filter { string in string.count == length }
+    arrayString.filter { string in string.count == length }
 }
 print(lengthString(arrayString: ["Alex", "Bob", "Misha", "Nikita", "Sergey", "Li"], length: 6))
 //  14. Напишите функцию, которая принимает два числа и возвращает массив с числами в этом диапазоне.
 func range(a: Int, b: Int) -> [Int] {
-    return Array(a...b)
+    Array(a...b)
 }
 print(range(a: 1, b: 8))
 //  15. Напишите функцию, которая принимает число и возвращает массив всех чисел от 0 до этого числа.
 func rangeTo(num: Int) -> [Int] {
-    return Array(0..<num)
+    Array(0..<num)
 }
 print(rangeTo(num: 18))
 //  16. Напишите функцию, которая принимает массив чисел и возвращает среднее значение.
 func avg(arrayNum: [Int]) -> Double {
-    return Double((arrayNum.reduce(0, +)) / arrayNum.count)
+    Double((arrayNum.reduce(0, +)) / arrayNum.count)
 }
 print(avg(arrayNum: rangeTo(num: 5)))
 //  17. Напишите функцию, которая принимает массив чисел и возвращает количество положительных чисел.
 func positivNumbers(arrayNum: [Int]) -> Int {
-    return arrayNum.filter { num in num > 0 }.count
+    arrayNum.filter { num in num > 0 }.count
 }
 print(positivNumbers(arrayNum: rangeTo(num: 9)))
 //  18. Напишите функцию, которая принимает массив чисел и возвращает сумму квадратов этих чисел.
 func squarSum(arrayNum: [Int]) -> Int {
-    return arrayNum.map { num in num * num }.reduce(0, +)
+    arrayNum.map { num in num * num }.reduce(0, +)
 }
 print(squarSum(arrayNum: [3, 3]))
 //  19. Напишите функцию, которая принимает массив строк и возвращает массив строк без повторений.
 func withoutRepeat(arrayString: [String]) -> [String] {
-    return Array(Set(arrayString))
+    Array(Set(arrayString))
 }
 print(withoutRepeat(arrayString: ["hello", "hello", "bye-bye", "bye"]))
 //  20. Напишите функцию, которая принимает две строки и проверяет, является ли одна строка анаграммой другой.
 func isAnagram(stringOne: String, stringTwo: String) -> Bool {
-    return Array(stringOne.lowercased()).sorted() == Array(stringTwo.lowercased()).sorted()
+    Array(stringOne.lowercased()).sorted() == Array(stringTwo.lowercased()).sorted()
 }
 print(isAnagram(stringOne: "Удар", stringTwo: "руда"))
 //- *Сложные задачи*
